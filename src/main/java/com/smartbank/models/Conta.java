@@ -38,4 +38,16 @@ public class Conta {
             System.out.println("Saldo insuficiente ou valor inválido!");
         }
     }
+
+    public void transferir(Conta destino, double valor) {
+    if (valor > 0 && saldo >= valor) {
+        this.saldo -= valor; 
+        destino.depositar(valor); 
+        System.out.println("Transferência de R$ " + valor + " realizada com sucesso para a conta: " + destino.getNumero());
+    } else {
+        System.out.println("Transferência falhou: Saldo insuficiente ou valor inválido.");
+    }
 }
+
+}
+
