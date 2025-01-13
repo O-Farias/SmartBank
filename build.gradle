@@ -1,25 +1,29 @@
 plugins {
-    id 'java' 
+    id 'java' // Plugin básico para projetos Java
+    id 'application' // Plugin para rodar aplicações com Gradle
 }
 
-group = 'com.smartbank' 
-version = '1.0.0' 
+group = 'com.smartbank' // Nome do grupo do projeto
+version = '1.0.0' // Versão do projeto
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17 
-    targetCompatibility = JavaVersion.VERSION_17 
+    sourceCompatibility = JavaVersion.VERSION_17 // Versão do Java usada
+    targetCompatibility = JavaVersion.VERSION_17 // Versão alvo
+}
+
+application {
+    mainClass = 'com.smartbank.app.Main' // Define a classe principal (Main)
 }
 
 repositories {
-    mavenCentral() 
+    mavenCentral() // Repositório para baixar dependências
 }
 
 dependencies {
-    
+    // Dependência para testes com JUnit
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 }
 
 tasks.test {
-    useJUnitPlatform() 
+    useJUnitPlatform() // Configuração para testes JUnit
 }
-
