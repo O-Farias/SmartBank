@@ -1,9 +1,9 @@
 package com.smartbank.models;
 
-public class Conta {
+public abstract class Conta {
     private String numero;
     private String titular;
-    private double saldo;
+    protected double saldo; 
 
     public Conta(String numero, String titular, double saldoInicial) {
         this.numero = numero;
@@ -40,14 +40,15 @@ public class Conta {
     }
 
     public void transferir(Conta destino, double valor) {
-    if (valor > 0 && saldo >= valor) {
-        this.saldo -= valor; 
-        destino.depositar(valor); 
-        System.out.println("Transferência de R$ " + valor + " realizada com sucesso para a conta: " + destino.getNumero());
-    } else {
-        System.out.println("Transferência falhou: Saldo insuficiente ou valor inválido.");
+        if (valor > 0 && saldo >= valor) {
+            this.saldo -= valor;
+            destino.depositar(valor);
+            System.out.println("Transferência de R$ " + valor + " realizada com sucesso para a conta: " + destino.getNumero());
+        } else {
+            System.out.println("Transferência falhou: Saldo insuficiente ou valor inválido.");
+        }
     }
-}
 
+    // Método abstrato para rendimento
+    public abstract void aplicarRendimento();
 }
-
