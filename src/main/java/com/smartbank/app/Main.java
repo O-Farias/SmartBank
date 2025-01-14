@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Conta> contas = new ArrayList<>();
 
-        // Adicionando contas de exemplo
+        
         contas.add(new ContaCorrente("001", "Mateus", 1000, 500));
         contas.add(new ContaPoupanca("002", "João", 2000, 0.02));
         contas.add(new ContaInvestimento("003", "Ana", 5000, 0.05, 20));
